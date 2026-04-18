@@ -1,0 +1,40 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "User Profile",
+      "description": "User profile with points",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "points": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "points", "createdAt"]
+    },
+    "video": {
+      "title": "Video",
+      "description": "Video upload meta data",
+      "type": "object",
+      "properties": {
+        "authorId": { "type": "string" },
+        "url": { "type": "string" },
+        "thumbnail": { "type": "string" },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "likes": { "type": "number" }
+      },
+      "required": ["authorId", "url", "description", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "Stores user profile and account points"
+    },
+    "/videos/{videoId}": {
+      "schema": "video",
+      "description": "Stores video metadata"
+    }
+  }
+}

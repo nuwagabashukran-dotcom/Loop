@@ -1,0 +1,9 @@
+{
+  "name": "Loop - Viral Shorts",
+  "description": "The ultimate global short video platform to create, discover, and share loopable creativity. Featuring epic effects, viral sounds, and a vibrant community.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
