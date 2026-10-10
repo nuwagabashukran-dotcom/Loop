@@ -1,39 +1,372 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #05070d;
+  --panel: rgba(133, 105, 255, 0.08);
+  --panel-strong: rgba(154, 118, 255, 0.18);
+  --line: rgba(255, 255, 255, 0.35);
+  --purple: #8a7cff;
+  --blue: #55b8ff;
+  --text: #f1f4ff;
+  --muted: rgba(255, 255, 255, 0.72);
+  --soft-glow: rgba(145, 94, 255, 0.5);
+}
 
 @theme {
   --font-sans: "Helvetica Neue", Arial, "Inter", sans-serif;
-  
-  --color-primary: #FF2C55;
-  --color-secondary: #25F4EE;
-  --color-bg-dark: #0B0E14;
-  --color-card-dark: #1A1D23;
-  --color-glass: rgba(255, 255, 255, 0.1);
-  --color-text-dim: rgba(255, 255, 255, 0.6);
 }
 
-@layer base {
-  body {
-    @apply bg-bg-dark text-white overflow-hidden min-h-screen relative;
-    font-family: var(--font-sans);
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  background: var(--bg);
+  font-family: var(--font-sans);
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(120, 90, 255, 0.1), transparent 22%),
+    radial-gradient(circle at 80% 65%, rgba(93, 118, 255, 0.08), transparent 25%),
+    #000000;
+  color: var(--text);
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+.nexora-shell {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px 32px 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.section-title {
+  margin: 0 0 36px;
+  color: rgba(255, 255, 255, 0.96);
+  font-size: clamp(2.2rem, 2.4vw, 4rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+}
+
+.fintech-types-section {
+  padding-top: 6px;
+}
+
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(130px, 1fr));
+  gap: 28px 32px;
+  max-width: 1380px;
+  margin: 0 auto;
+  justify-items: center;
+  padding-top: 10px;
+}
+
+.type-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 205px;
+  text-align: center;
+}
+
+.type-icon-wrap {
+  width: 150px;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  color: #8a7cff;
+  -webkit-text-stroke: 1.2px rgba(138, 124, 255, 0.7);
+  filter: drop-shadow(0 0 16px rgba(143, 84, 255, 0.26));
+}
+
+.type-icon-wrap svg {
+  stroke: #7d64ff;
+  fill: none;
+  stroke-width: 2.4;
+}
+
+.type-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 58px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  font-size: clamp(1.2rem, 1.1vw, 1.8rem);
+  text-transform: capitalize;
+}
+
+.type-copy span {
+  display: block;
+  line-height: 1.08;
+}
+
+.feature-section {
+  margin-top: 52px;
+  padding-top: 14px;
+}
+
+.feature-title {
+  margin-bottom: 32px;
+}
+
+.feature-map {
+  position: relative;
+  width: min(1280px, 100%);
+  height: 540px;
+  margin: 0 auto;
+}
+
+.map-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 40%, rgba(170, 112, 255, 0.36), rgba(86, 71, 212, 0.88) 45%, rgba(20, 18, 48, 0.95) 100%);
+  box-shadow:
+    0 0 0 4px rgba(122, 90, 255, 0.1),
+    0 0 40px rgba(203, 109, 255, 0.25),
+    inset 0 0 30px rgba(255, 255, 255, 0.08);
+}
+
+.center-core {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gear-svg {
+  width: 160px;
+  height: 160px;
+  filter: drop-shadow(0 0 18px rgba(255, 120, 200, 0.35));
+}
+
+.feature-card {
+  position: absolute;
+  min-width: 300px;
+  max-width: 430px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 30px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, rgba(136, 95, 255, 0.88), rgba(103, 124, 255, 0.82));
+  border: 2px solid rgba(180, 160, 255, 0.8);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 15px 30px rgba(67, 53, 154, 0.18);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-size: clamp(1.1rem, 1.4vw, 1.9rem);
+  line-height: 1.15;
+  text-align: center;
+  z-index: 1;
+}
+
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+}
+
+.feature-text {
+  position: relative;
+  z-index: 1;
+}
+
+.card-top-left {
+  left: 10%;
+  top: 5%;
+}
+
+.card-top-right {
+  right: 10%;
+  top: 5%;
+}
+
+.card-mid-left {
+  left: 2%;
+  top: 34%;
+}
+
+.card-mid-right {
+  right: 2%;
+  top: 34%;
+}
+
+.card-bottom-left {
+  left: 15%;
+  bottom: 8%;
+}
+
+.card-bottom-right {
+  right: 15%;
+  bottom: 8%;
+}
+
+.feature-map::before,
+.feature-map::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.feature-map::before {
+  background:
+    linear-gradient(90deg, transparent 0 32%, rgba(255,255,255,0.8) 32.6%, transparent 33% 67%, rgba(255,255,255,0.8) 67.4%, transparent 68%),
+    linear-gradient(180deg, transparent 0 30%, rgba(255,255,255,0.8) 30.5%, transparent 31% 69%, rgba(255,255,255,0.8) 69.5%, transparent 70%);
+  opacity: 0.7;
+}
+
+.feature-map::after {
+  background:
+    linear-gradient(90deg, transparent 0 49%, rgba(255,255,255,0.88) 49.2%, transparent 49.5%),
+    linear-gradient(90deg, transparent 0 50.5%, rgba(255,255,255,0.88) 50.8%, transparent 51.1%),
+    linear-gradient(180deg, transparent 0 49%, rgba(255,255,255,0.88) 49.2%, transparent 49.5%),
+    linear-gradient(180deg, transparent 0 50.5%, rgba(255,255,255,0.88) 50.8%, transparent 51.1%);
+  opacity: 0.9;
+  filter: blur(0.2px);
+}
+
+.feature-map .feature-card:nth-child(2) {
+  left: 11%;
+}
+
+.bottom-logo {
+  position: absolute;
+  left: 28px;
+  bottom: 20px;
+  font-size: clamp(2.1rem, 3vw, 3.2rem);
+  letter-spacing: -0.08em;
+  font-weight: 900;
+  color: rgba(109, 111, 255, 0.95);
+  text-shadow: 0 0 18px rgba(134, 92, 255, 0.18);
+}
+
+@media (max-width: 1200px) {
+  .types-grid {
+    grid-template-columns: repeat(4, minmax(140px, 1fr));
   }
 
-  body::before {
-    content: '';
-    @apply absolute inset-0 pointer-events-none;
-    background: 
-      radial-gradient(circle at 80% 20%, rgba(255, 44, 85, 0.05) 0%, transparent 40%),
-      radial-gradient(circle at 20% 80%, rgba(37, 244, 238, 0.05) 0%, transparent 40%);
+  .feature-map {
+    height: 620px;
+  }
+
+  .card-mid-left {
+    left: 5%;
+  }
+
+  .card-mid-right {
+    right: 5%;
   }
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+@media (max-width: 900px) {
+  .nexora-shell {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .types-grid {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+
+  .feature-map {
+    height: 980px;
+  }
+
+  .feature-card {
+    position: static;
+    width: min(100%, 440px);
+    margin: 0 auto 18px;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .feature-map {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .map-center {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-bottom: 20px;
+  }
+
+  .feature-map::before,
+  .feature-map::after {
+    display: none;
+  }
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+@media (max-width: 560px) {
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 28px;
+  }
+
+  .types-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .type-icon-wrap {
+    width: 120px;
+    height: 108px;
+  }
+
+  .feature-card {
+    min-height: 62px;
+    font-size: 1.04rem;
+    padding: 16px 18px;
+  }
+
+  .bottom-logo {
+    position: static;
+    display: block;
+    padding: 14px 0 26px;
+  }
 }
