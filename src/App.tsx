@@ -6,7 +6,6 @@ import {
   BriefcaseBusiness,
   Coins,
   CreditCard,
-  DollarSign,
   Landmark,
   Repeat2,
   ShieldCheck,
@@ -28,12 +27,12 @@ const fintechTypes = [
 ];
 
 const features = [
-  { title: 'Real-time push notifications', className: 'card-top-left', Icon: BellRing },
-  { title: 'Customer support chatbots', className: 'card-top-right', Icon: Bot },
-  { title: 'Secure authentication and authorization', className: 'card-mid-left', Icon: ShieldCheck },
-  { title: 'Integration with payment methods and banks', className: 'card-mid-right', Icon: Landmark },
-  { title: 'Financial dashboards and analytics', className: 'card-bottom-left', Icon: BarChart3 },
-  { title: 'Automation and Machine Learning', className: 'card-bottom-right', Icon: TrendingUp },
+  { title: 'Real-time push notifications', className: 'card-top-left' },
+  { title: 'Customer support chatbots', className: 'card-top-right' },
+  { title: 'Secure authentication and authorization', className: 'card-mid-left' },
+  { title: 'Integration with payment methods and banks', className: 'card-mid-right' },
+  { title: 'Financial dashboards and analytics', className: 'card-bottom-left' },
+  { title: 'Automation and Machine Learning', className: 'card-bottom-right' },
 ];
 
 export default function App() {
@@ -46,7 +45,7 @@ export default function App() {
           {fintechTypes.map(({ label, Icon }) => (
             <div key={label.join('-')} className="type-card">
               <div className="type-icon-wrap">
-                <Icon size={56} strokeWidth={2.3} />
+                <Icon size={58} strokeWidth={2.3} />
               </div>
 
               <div className="type-copy">
@@ -69,13 +68,15 @@ export default function App() {
                 <div className="gear-nucleus">
                   <div className="gear-outer" />
                   <div className="gear-inner" />
-                  <DollarSign size={36} strokeWidth={2.8} className="dollar-mark" />
+                  <div className="gear-dollar" aria-hidden="true">
+                    <span>$</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {features.map(({ title, className, Icon }) => (
+          {features.map(({ title, className }) => (
             <div key={title} className={`feature-card ${className}`}>
               <span className="feature-text">{title}</span>
             </div>
