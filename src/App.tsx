@@ -4,11 +4,13 @@ import {
   BellRing,
   Bot,
   BriefcaseBusiness,
+  Building2,
   Coins,
   CreditCard,
   Landmark,
   Repeat2,
   ShieldCheck,
+  Smartphone,
   TrendingUp,
   Wallet,
 } from 'lucide-react';
@@ -23,7 +25,7 @@ const fintechTypes = [
   { label: ['Trading', 'Platforms'], Icon: TrendingUp },
   { label: ['Investment', 'Apps'], Icon: BriefcaseBusiness },
   { label: ['Crypto', 'Wallets'], Icon: Repeat2 },
-  { label: ['Banking', 'Solutions'], Icon: BarChart3 },
+  { label: ['Banking', 'Solutions'], Icon: Building2 },
 ];
 
 const features = [
@@ -45,7 +47,7 @@ export default function App() {
           {fintechTypes.map(({ label, Icon }) => (
             <div key={label.join('-')} className="type-card">
               <div className="type-icon-wrap">
-                <Icon size={58} strokeWidth={2.3} />
+                <Icon size={58} strokeWidth={2.4} />
               </div>
 
               <div className="type-copy">
@@ -62,14 +64,14 @@ export default function App() {
         <h2 className="section-title feature-title">Must-Have Features for Fintech Apps</h2>
 
         <div className="feature-map">
-          <div className="map-center" aria-label="center icon">
+          <div className="map-center" aria-label="Uganda fintech center">
             <div className="center-core">
               <div className="gear-ring">
                 <div className="gear-nucleus">
                   <div className="gear-outer" />
                   <div className="gear-inner" />
                   <div className="gear-dollar" aria-hidden="true">
-                    <span>$</span>
+                    <span>UGX</span>
                   </div>
                 </div>
               </div>
